@@ -1,0 +1,27 @@
+#  Supper timeline logstash filter for CSV file as the output of log2timeline.py. 
+#  Fields   
+# (date,time,timezone,MACB,source,sourcetype,type,user,host,short,desc,version,filename,inode,notes,format,extra)
+
+input {
+	file {
+	path => "/Timeline/supper-timeline.csv"
+	sincedb_path => "/dev/null"
+	start_position => "beginning"
+	}
+}
+
+filter { 
+	grok { 
+		match => ["message","(?<date>(.*?)),(?<time>(.*?)),(?<timezone>(.*?)),(?<MACB>(.*?)),(?<source>(.*?)),(?<sourcetype>(.*?)),(?<type>(.*?)),(?<user>(.*?)),(?<host>(.*?)),(?<short>(.*?)),(?<desc>(.*?)),(?<version>(.*?)),(?<filename>(.*?)),(?<inode>(.*?)),(?<notes>(.*?)),(?<format>(.*?)),%{GREEDYDATA:extra}"]
+}
+	}
+
+
+output  {
+        elasticsearch { 
+        hosts => "localhost:9200"
+	      index => "log2timeline-output"
+
+}
+
+}
