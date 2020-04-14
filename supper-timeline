@@ -1,5 +1,6 @@
-#  Supper timeline logstash filter for CSV file as the output of log2timeline.py. 
-#  Fields   
+# Forensic
+# Supper timeline logstash filter for CSV file as the output of  forensic tool psort/plaso 
+# Fields   
 # (date,time,timezone,MACB,source,sourcetype,type,user,host,short,desc,version,filename,inode,notes,format,extra)
 
 input {
