@@ -1,2 +1,2 @@
-# Supper timeline for the Disk-Image or mounted dirver using log2timeline/plaso tool
-# Logstash filtter to parsing the CSV output file (log2timeline/plaso)
+Supper timeline created by psort/plaso for the Disk-Image or mounted dirver using tool Log2timeline/plaso, 
+Logstash filtter to parsing the CSV output file (psort/plaso)
